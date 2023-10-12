@@ -20,12 +20,12 @@ def visualizacion_analisis():
     default=df_['Agente'].unique()[:4])
 
     NombreDia=st.sidebar.multiselect(
-    label='Filtre Por NombreDia 🔎',
+    label='Filtre Por Dia 🔎',
     options=df_['NombreDia'].unique(),
     default=df_['NombreDia'].unique()[:2])
 
     NombreMes=st.sidebar.multiselect(
-    label='Filtre Por NombreMes 🔎',
+    label='Filtre Por Mes 🔎',
     options=df_['NombreMes'].unique(),
     default=df_['NombreMes'].unique()[:1])
 
