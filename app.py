@@ -149,7 +149,7 @@ def data_analisis():
     st.title("Video de apertura del Archivo ")
 
     # Ruta del archivo de video en formato WebM
-    video_path = open("video/20231012 095540-1.webm",'rb' ) # Cambia a la ruta correcta de tu video WebM
+    video_path = open("video/20231012 101004 Edit1-1.webm",'rb' ) # Cambia a la ruta correcta de tu video WebM
     video_file=video_path.read()
     # Agregar el video a la aplicación
     st.video(video_file)
