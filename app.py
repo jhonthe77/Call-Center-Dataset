@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from texto import *
-from io import StringIO
+from io import StringIO,BytesIO
 
 
 st.set_page_config('Proceso de Analisis',layout='wide')
@@ -107,11 +107,11 @@ def data_analisis():
     df_au = pd.read_csv("Callcenter.csv")
 
     
-    def convert_df(df):
-     return df.to_csv(index=False).encode('utf-8')
+    def convert_df(df_au):
+     return df_au.to_csv(index=False).encode('utf-8')
 
 
-    csv = convert_df(df)
+    csv = convert_df(df_au)
 
     st.download_button(
     "Press to Download",
@@ -121,7 +121,29 @@ def data_analisis():
     key='download-csv'
     )
     
+    # Leer el archivo XLSX
+    xlsx_file_path = "Callcenter.xlsx"  # Cambia a la ruta correcta de tu archivo XLSX
+    df = pd.read_excel(xlsx_file_path)
 
+    # Función para convertir DataFrame a XLSX
+    def convert_df_to_xlsx(df):
+        buffer = BytesIO()
+        with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+            df.to_excel(writer, index=False, sheet_name='Sheet1')
+        buffer.seek(0)
+        return buffer
+
+    # Convierte el DataFrame a XLSX y obtén el contenido
+    xlsx_content = convert_df_to_xlsx(df)
+
+    # Agrega un botón para descargar el archivo XLSX
+    st.download_button(
+        label="Presiona para descargar XLSX",
+        data=xlsx_content,
+        file_name="archivo_descargado.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        key='download-xlsx'
+    )
 
 
 data_analisis()
