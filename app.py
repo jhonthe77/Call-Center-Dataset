@@ -118,7 +118,9 @@ def data_analisis():
     csv,
     "file.csv",
     "text/csv",
-    key='download-csv'
+    key='download-csv',
+    use_container_width=True
+
     )
     
     # Leer el archivo XLSX
@@ -142,7 +144,8 @@ def data_analisis():
         data=xlsx_content,
         file_name="archivo_descargado.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        key='download-xlsx'
+        key='download-xlsx',
+        use_container_width=True
     )
 
 
