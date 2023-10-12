@@ -152,13 +152,13 @@ def data_analisis():
 
 
 pages = {
-    "Data analisis ": data_analisis,
-    "Analisis con visualizacion ": visualizacion_analisis,
+    "Data analisis 📋 ": data_analisis,
+    "Analisis con visualizacion 📊 ": visualizacion_analisis,
     
 }
 
 # Sidebar para la selección de página
-page_selection = st.sidebar.radio("Selecciona una página", tuple(pages.keys()))
+page_selection = st.sidebar.radio("Selecciona una página 📊", tuple(pages.keys()))
 
 # Llama a la función correspondiente a la página seleccionada
 pages[page_selection]()
