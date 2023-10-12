@@ -128,4 +128,24 @@ def visualizacion_analisis():
 
         st.plotly_chart(fig,use_container_width=True,theme=theme)
 
-
+    colores_agentes = {'Becky': 'blue', 'Dan': 'green', 'Diane': 'red', 'Greg': 'purple', 'Jim': 'orange', 'Joe': 'cyan', 'Martha': 'magenta', 'Stewart': 'yellow'}
+    fig = px.line_polar(df_agente, 
+                    theta='Tema', 
+                    r='Resuelto_count', 
+                    color='Agente',  # Utiliza la columna 'Agente' para asignar colores
+                    color_discrete_map=colores_agentes,  # Asigna colores basados en el diccionario
+                    title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
+                    labels={'Resuelto_count': 'Resuelto(Y/N)'},
+                    markers=True,
+                    line_close=True)
+    fig.update_traces(fill='toself')
+    fig.update_layout(
+    polar=dict(
+        bgcolor='#83C9FF',  # Cambia el color del fondo
+        radialaxis=dict(
+            visible=True,
+            gridcolor='black',  # Cambia el color de la cuadrícula radial
+        ),
+    ),
+)
+    st.plotly_chart(fig,use_container_width=True,theme=theme)
