@@ -29,7 +29,12 @@ def visualizacion_analisis():
     options=df_['NombreMes'].unique(),
     default=df_['NombreMes'].unique()[:2])
 
-    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes')
+    Resuelto=st.sidebar.multiselect(
+    label='Filtre Por Resuelto 🔎',
+    options=df_['Resuelto'].unique(),
+    default=df_['Resuelto'].unique()[:1])
+
+    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes | Resuelto==@Resuelto')
 
 
     st.title('Analisis con visualizaciónes 📈')
@@ -46,11 +51,6 @@ def visualizacion_analisis():
         fig=px.pie(df_agente,names='Agente',values='Calificación de satisfacción',color='Agente',hole=0.5,
                 title='Promedio de la Calificacion de cada Agente')
         st.plotly_chart(fig,use_container_width=True,theme=theme)
-
-
-    
-   
-
 
     
     df_agente=df_.groupby(['Agente','Tema'])['Calificación de satisfacción'].mean().reset_index()
