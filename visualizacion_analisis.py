@@ -111,7 +111,8 @@ def visualizacion_analisis():
                     color='Agente',
                     barmode='group',
                     title='Calificaciones de Satisfacción por Agente y Tema',
-                    labels={'Resuelto_count': 'Resuelto(Y/N)'})
+                    labels={'Resuelto_count': 'Resuelto(Y/N)'},
+                    text='Resuelto')
         st.plotly_chart(fig,use_container_width=True,theme=theme)
             
     with col6:
@@ -122,7 +123,8 @@ def visualizacion_analisis():
                 color='Agente',
                 title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
                 labels={'Resuelto_count': 'Resuelto(Y/N)'},
-                markers=True)
+                markers=True,
+                    text='Resuelto')
 
         st.plotly_chart(fig,use_container_width=True,theme=theme)
 
