@@ -17,6 +17,8 @@ add_selectbox = st.sidebar.selectbox(
 
 
 def data_analisis():
+
+
     st.title('Proceso de Analisis de una base de agentes call center 🎧')
     df=pd.read_excel("Telecom Company Call-Center-Dataset.xlsx")
     st.write(introducion)
@@ -37,13 +39,13 @@ def data_analisis():
             st.text(info)
         with col1:
             st.subheader('Explicacion de la informacion')
-            st.write(explicacion_info)
+            st.write(explicacion_info,unsafe_allow_html=True)
             st.audio('20231011_223221.mp3', format='audio/mp3')
 
 
 
     st.subheader('Datos con los que trabajare')
-    st.dataframe(df.head())
+    st.dataframe(df.head(),use_container_width=True)
     st.subheader('Mostrare los pasos para limpiar y enriqueser los datos 📋')
 
     #elimino la columna id ya que no es relevante 
@@ -79,9 +81,9 @@ def data_analisis():
     df_.rename(columns=columns_name_es,inplace=True)
     df_['Fecha']=pd.to_datetime(df_['Fecha']).dt.date
 
-    with st.expander('Ver El Codigo Para Depurar y Enriqueser los Datos 📋'):
+    with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋'):
         st.code(codigo)
-    st.dataframe(df_.head())
+    st.dataframe(df_.head(),use_container_width=True)
 
     df_['Fecha']=pd.to_datetime(df_['Fecha'])
     df_.info(buf=buffer2)
@@ -94,11 +96,11 @@ def data_analisis():
             st.text(info2)
         with col3:
             st.subheader('Explicacion de la informacion')
-            st.write(explicacion_info2)
+            st.write(explicacion_info2,unsafe_allow_html=True)
             st.audio('20231011_231621.mp3', format='audio/mp3')
 
     st.subheader('Esta es la estadistica basica que me entrega el df')
-    st.dataframe(df_.describe())
+    st.dataframe(df_.describe(),use_container_width=True)
     
 
 
