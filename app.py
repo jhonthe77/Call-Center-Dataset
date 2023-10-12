@@ -20,10 +20,9 @@ def data_analisis():
     st.title('Proceso de Analisis de una base de agentes call center 🎧')
     df=pd.read_excel("Telecom Company Call-Center-Dataset.xlsx")
     st.write(introducion)
-    ruta_audio = "20231011_213345.mp3"  # Reemplaza con la ruta correcta a tu archivo de audio
 
 # Mostrar el reproductor de audio
-    st.audio(ruta_audio, format='audio/mp3')
+    st.audio("20231011_213345.mp3", format='audio/mp3')
     st.subheader('Datos con los que trabajare')
     st.dataframe(df.head())
     st.subheader('Mostrare los pasos para limpiar y enriqueser los datos')
