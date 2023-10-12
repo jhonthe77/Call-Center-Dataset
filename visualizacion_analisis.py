@@ -32,7 +32,7 @@ def visualizacion_analisis():
     Tema=st.sidebar.multiselect(
     label='Filtre Por Tema 🔎',
     options=df_['Tema'].unique(),
-    default=df_['Tema'].unique()[:4])
+    default=df_['Tema'].unique()[:])
 
     Agente=st.sidebar.multiselect(
     label='Filtre Por Agente 🔎',
