@@ -10,6 +10,9 @@ from visualizacion_analisis import *
 st.set_page_config('Proceso de Analisis', layout='wide')
 
 
+
+
+
 def data_analisis():
 
     st.title('Proceso de Analisis de una base de agentes call center 🎧')
@@ -72,6 +75,15 @@ def data_analisis():
     # renombro las columnas con el dicionario que cree en la parte superior
     df_.rename(columns=columns_name_es, inplace=True)
     df_['Fecha'] = pd.to_datetime(df_['Fecha']).dt.date
+
+
+    df.set_index('id',inplace=True)
+
+
+
+
+
+
 
     with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋'):
         st.code(codigo)
@@ -151,6 +163,14 @@ def data_analisis():
 
 
 
+
+
+
+# Llama a la función para mostrar los elementos en la barra lateral
+
+
+
+
 pages = {
     "Data analisis 📋 ": data_analisis,
     "Analisis con visualizacion 📊 ": visualizacion_analisis,
@@ -160,5 +180,16 @@ pages = {
 # Sidebar para la selección de página
 page_selection = st.sidebar.radio("Selecciona una página 📃", tuple(pages.keys()))
 
+
+
+
 # Llama a la función correspondiente a la página seleccionada
 pages[page_selection]()
+
+
+
+
+
+# Llama a la función principal para ejecutar la app
+
+
