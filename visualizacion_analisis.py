@@ -42,7 +42,7 @@ def visualizacion_analisis():
     NombreDia=st.sidebar.multiselect(
     label='Filtre Por Dia 🔎',
     options=df_['NombreDia'].unique(),
-    default=df_['NombreDia'].unique()[:2])
+    default=df_['NombreDia'].unique()[:])
 
     Resuelto=st.sidebar.multiselect(
     label='Filtre Por Resuelto 🔎',
