@@ -158,7 +158,7 @@ pages = {
 }
 
 # Sidebar para la selección de página
-page_selection = st.sidebar.radio("Selecciona una página 📊", tuple(pages.keys()))
+page_selection = st.sidebar.radio("Selecciona una página 📃", tuple(pages.keys()))
 
 # Llama a la función correspondiente a la página seleccionada
 pages[page_selection]()
