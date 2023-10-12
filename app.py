@@ -83,6 +83,7 @@ def data_analisis():
         st.code(codigo)
     st.dataframe(df_.head())
 
+    df_['Fecha']=pd.to_datetime(df_['Fecha'])
     df_.info(buf=buffer2)
     info2=buffer2.getvalue()
 
@@ -93,7 +94,7 @@ def data_analisis():
             st.text(info2)
         with col3:
             st.subheader('Explicacion de la informacion')
-            st.write(explicacion_info)
+            st.write(explicacion_info2)
             st.audio('20231011_223221.mp3', format='audio/mp3')
 
 
