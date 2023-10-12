@@ -6,9 +6,29 @@ import streamlit as st
 
 
 def visualizacion_analisis():
-    st.subheader('Hecho Por Jhon Kerly Mosquera 🕵️‍♂️ Este panel se estara atualizando')
     df_=pd.read_csv('Callcenter.csv')
+    df_['Fecha']=pd.to_datetime(df_['Fecha'])
+    fecha_min = df_['Fecha'].min()
+    fecha_max = df_['Fecha'].max()
+
+
+    st.subheader('Hecho Por Jhon Kerly Mosquera 🕵️‍♂️ Este panel se estara atualizando')
     st.sidebar.header('Filtar Los Datos 🔎')
+    st.title('Analisis con visualizaciónes 📈')
+
+    st.subheader("Selecciona un rango de fechas:")
+    col00, col11=st.columns(2)
+    with col00:
+        fecha_init = st.date_input("Fecha Inicial", fecha_min, min_value=fecha_min, max_value=fecha_max)
+
+
+    with col11:
+# Widget para la fecha final con valor máximo
+     fecha_end = st.date_input("Fecha Final", fecha_max, min_value=fecha_min, max_value=fecha_max)
+
+
+
+
     Tema=st.sidebar.multiselect(
     label='Filtre Por Tema 🔎',
     options=df_['Tema'].unique(),
@@ -24,21 +44,15 @@ def visualizacion_analisis():
     options=df_['NombreDia'].unique(),
     default=df_['NombreDia'].unique()[:2])
 
-    NombreMes=st.sidebar.multiselect(
-    label='Filtre Por Mes 🔎',
-    options=df_['NombreMes'].unique(),
-    default=df_['NombreMes'].unique()[:1])
-
     Resuelto=st.sidebar.multiselect(
     label='Filtre Por Resuelto 🔎',
     options=df_['Resuelto'].unique(),
     default=df_['Resuelto'].unique()[0]
     )
 
-    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes & Resuelto==@Resuelto')
+    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & Resuelto==@Resuelto & Fecha >= @fecha_init and Fecha <= @fecha_end')
 
 
-    st.title('Analisis con visualizaciónes 📈')
     col1, col2=st.columns(2)
     theme='streamlit'
     with col1:
