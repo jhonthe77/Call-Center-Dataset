@@ -30,7 +30,7 @@ def data_analisis():
 
 # Mostrar el reproductor de audio
     st.subheader('Escuchar La lectura del texto')
-    st.audio("20231011_213345.mp3", format='audio/mp3')
+    st.audio("audios\\20231011_213345.mp3", format='audio/mp3')
 
     st.subheader('Esta es la Informacion que me entrega el df')
     with st.expander('Ver la infromación que arroja el DataFrme 📋',expanded=True):
@@ -40,7 +40,7 @@ def data_analisis():
         with col1:
             st.subheader('Explicacion de la informacion')
             st.write(explicacion_info,unsafe_allow_html=True)
-            st.audio('20231011_223221.mp3', format='audio/mp3')
+            st.audio('audios\\20231011_223221.mp3', format='audio/mp3')
 
 
 
@@ -97,7 +97,7 @@ def data_analisis():
         with col3:
             st.subheader('Explicacion de la informacion')
             st.write(explicacion_info2,unsafe_allow_html=True)
-            st.audio('20231011_231621.mp3', format='audio/mp3')
+            st.audio('audios\\20231011_231621.mp3', format='audio/mp3')
 
     st.subheader('Esta es la estadistica basica que me entrega el df')
     st.dataframe(df_.describe(),use_container_width=True)
