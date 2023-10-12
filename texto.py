@@ -2,6 +2,9 @@ introducion='''
 El proceso exploratorio de datos (EDA) es como desentrañar los secretos del universo de los datos. Comienza con la recolección y limpieza de datos, donde se despojan de cualquier confusión o desorden. Luego, a través del análisis, estos datos revelan sus verdades ocultas, sus conexiones y estructuras. Es como descifrar un código cósmico. La visualización es la manifestación de estas verdades, permitiendo ver la belleza y complejidad de lo que antes estaba oculto. Finalmente, este conocimiento brinda poder: poder para tomar decisiones informadas y diseñar estrategias que transformen el mundo. El EDA es la clave para desvelar la sabiduría enterrada en los datos y, en última instancia, para crear un impacto significativo.
 '''
 codigo ='''
+#lectura del archivo
+df=pd.read_excel("Telecom Company Call-Center-Dataset.xlsx")
+
 #dicionario para renombara las columnas del df
 columns_name_es={
     'Agent': 'Agente',
@@ -50,6 +53,8 @@ df_.loc[:,'NombreMes']=df_['Date'].dt.month.apply(lambda x: calendar.month_name[
 
 #renombro las columnas con el dicionario que cree en la parte superior
 df_.rename(columns=columns_name_es,inplace=True)
+#muestro los datos
+df_.head()
 '''
 
 columns_name_es={

@@ -22,7 +22,7 @@ def data_analisis():
     st.write(introducion)
     st.subheader('Datos con los que trabajare')
     st.dataframe(df.head())
-    st.text('Mostrare los pasos para limpiar e enriqueser los datos')
+    st.subheader('Mostrare los pasos para limpiar y enriqueser los datos')
 
     #elimino la columna id ya que no es relevante 
     df.drop(columns='Call Id',inplace=True)
@@ -55,8 +55,10 @@ def data_analisis():
 
     #renombro las columnas con el dicionario que cree en la parte superior
     df_.rename(columns=columns_name_es,inplace=True)
+    df_['Fecha']=pd.to_datetime(df_['Fecha']).dt.date
 
-    st.code(codigo)
+    with st.expander('Ver El Codigo Para Depurar y Enriqueser los Datos'):
+        st.code(codigo)
     st.dataframe(df_.head())
 
 
