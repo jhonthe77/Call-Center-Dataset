@@ -30,7 +30,7 @@ def data_analisis():
     st.audio("20231011_213345.mp3", format='audio/mp3')
 
     st.subheader('Esta es la Informacion que me entrega el df')
-    with st.expander('Ver la infromación que arroja el DataFrme 📋'):
+    with st.expander('Ver la infromación que arroja el DataFrme 📋',expanded=True):
         col,col1,=st.columns(2)
         with col:
             st.text(info)
