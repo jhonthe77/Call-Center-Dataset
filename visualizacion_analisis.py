@@ -47,6 +47,19 @@ def visualizacion_analisis():
                 y='Calificación de satisfacción', 
                 color='Agente',
                 title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
-                labels={'Calificación de satisfacción': 'Calificación'})
+                labels={'Calificación de satisfacción': 'Calificación'},
+                markers=True)
 
         st.plotly_chart(fig,use_container_width=True,theme=theme)
+
+    fig = px.line(df_agente, 
+            x='Agente', 
+            y='Calificación de satisfacción', 
+            color='Tema',
+            title='Evolución de Calificaciones de Satisfacción por Agente Y Tema',
+            labels={'Calificación de satisfacción': 'Calificación'},
+            markers=True)
+
+    st.plotly_chart(fig,use_container_width=True,theme=theme)
+
+     
