@@ -70,3 +70,12 @@ columns_name_es={
     'Duracion_llamada': 'Duración de la llamada',
     'Duracion_llamad_minutos': 'Duración de la llamada en minutos'
 }
+
+
+explicacion_info='''
+Te explico un poco qué es esta información. Primero, debes saber que un DataFrame no es más que una tabla de Excel en Python. Partiendo de que sabes qué es un DataFrame, ahora te explico lo que estás observando.
+
+Lo primero es el tipo de archivo con el que estás trabajando. Luego, está el número de registros que contiene el DataFrame, que en este caso va de 0 a 4999. A continuación, verás información sobre las columnas que contiene. En la parte izquierda están los nombres, en el centro están los datos que no están nulos y al final está el tipo de dato que tienen.
+
+Después, te muestra los tipos de datos presentes en el DataFrame y, por último, te indica cuánta memoria RAM estás utilizando.
+'''

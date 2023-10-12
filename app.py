@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from texto import *
+from io import StringIO
 
 
 st.set_page_config('Proceso de Analisis',layout='wide')
@@ -20,9 +21,26 @@ def data_analisis():
     df=pd.read_excel("Telecom Company Call-Center-Dataset.xlsx")
     st.write(introducion)
 
+    buffer=StringIO()
+    df.info(buf=buffer)
+    info=buffer.getvalue()
+
 # Mostrar el reproductor de audio
     st.subheader('Escuchar La lectura del texto')
     st.audio("20231011_213345.mp3", format='audio/mp3')
+
+    st.subheader('Esta es la Informacion que me entrega el df')
+    with st.expander('Ver la infromación que arroja el DataFrme 📋'):
+        col,col1,=st.columns(2)
+        with col:
+            st.text(info)
+        with col1:
+            st.subheader('Explicacion de la informacion')
+            st.write(explicacion_info)
+            st.audio('20231011_223221.mp3', format='audio/mp3')
+
+
+
     st.subheader('Datos con los que trabajare')
     st.dataframe(df.head())
     st.subheader('Mostrare los pasos para limpiar y enriqueser los datos 📋')
