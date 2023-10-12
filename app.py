@@ -14,6 +14,7 @@ st.set_page_config('Proceso de Analisis', layout='wide')
 
 
 def data_analisis():
+    st.subheader('Hecho Por Jhon Kerly Mosquera 🕵️‍♂️')
 
     st.title('Proceso de Analisis de una base de agentes call center 🎧')
     df = pd.read_excel("Telecom Company Call-Center-Dataset.xlsx")
