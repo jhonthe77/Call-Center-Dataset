@@ -32,9 +32,10 @@ def visualizacion_analisis():
     Resuelto=st.sidebar.multiselect(
     label='Filtre Por Resuelto 🔎',
     options=df_['Resuelto'].unique(),
+    default=df_['Resuelto'].unique()[0]
     )
 
-    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes | Resuelto==@Resuelto')
+    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes & Resuelto==@Resuelto')
 
 
     st.title('Analisis con visualizaciónes 📈')
