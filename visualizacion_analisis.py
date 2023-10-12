@@ -97,7 +97,33 @@ def visualizacion_analisis():
                 markers=True)
 
         st.plotly_chart(fig,use_container_width=True,theme=theme)
-        
 
+
+    df_agente=df_.groupby(['Agente','Tema','Resuelto']).size().reset_index(name='Resuelto_count')
+    
+    col5, col6=st.columns(2)
+
+
+    with col5:
+        fig = px.bar(df_agente, 
+                    x='Tema', 
+                    y='Resuelto_count', 
+                    color='Agente',
+                    barmode='group',
+                    title='Calificaciones de Satisfacción por Agente y Tema',
+                    labels={'Resuelto_count': 'Resuelto(Y/N)'})
+        st.plotly_chart(fig,use_container_width=True,theme=theme)
+            
+    with col6:
+
+        fig = px.line(df_agente, 
+                x='Tema', 
+                y='Resuelto_count', 
+                color='Agente',
+                title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
+                labels={'Resuelto_count': 'Resuelto(Y/N)'},
+                markers=True)
+
+        st.plotly_chart(fig,use_container_width=True,theme=theme)
 
 
