@@ -77,12 +77,7 @@ def data_analisis():
     df_['Fecha'] = pd.to_datetime(df_['Fecha']).dt.date
 
 
-    df.set_index('id',inplace=True)
-
-
-
-
-
+   
 
 
     with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋'):
