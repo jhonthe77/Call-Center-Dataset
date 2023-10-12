@@ -134,7 +134,7 @@ def visualizacion_analisis():
                     r='Resuelto_count', 
                     color='Agente',  # Utiliza la columna 'Agente' para asignar colores
                     color_discrete_map=colores_agentes,  # Asigna colores basados en el diccionario
-                    title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
+                    title='Fortaleza de Resuluciones de los Tema por Agente',
                     labels={'Resuelto_count': 'Resuelto(Y/N)'},
                     markers=True,
                     line_close=True)
