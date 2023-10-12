@@ -60,7 +60,7 @@ def data_analisis():
     df_.rename(columns=columns_name_es,inplace=True)
     df_['Fecha']=pd.to_datetime(df_['Fecha']).dt.date
 
-    with st.expander('Ver El Codigo Para Depurar y Enriqueser los Datos'):
+    with st.expander('Ver El Codigo Para Depurar y Enriqueser los Datos 📋'):
         st.code(codigo)
     st.dataframe(df_.head())
 
