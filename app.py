@@ -22,6 +22,7 @@ def data_analisis():
     st.write(introducion)
 
 # Mostrar el reproductor de audio
+    st.subheader('Escuchar La lectura del texto')
     st.audio("20231011_213345.mp3", format='audio/mp3')
     st.subheader('Datos con los que trabajare')
     st.dataframe(df.head())
