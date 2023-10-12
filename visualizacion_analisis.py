@@ -5,7 +5,7 @@ import streamlit as st
 
 
 def visualizacion_analisis():
-    st.title('Analisis con visualizaciónes')
+    st.title('Analisis con visualizaciónes 📈')
     col1, col2=st.columns(2)
     theme='streamlit'
     with col1:
