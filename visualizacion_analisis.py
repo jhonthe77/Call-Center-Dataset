@@ -27,7 +27,7 @@ def visualizacion_analisis():
     NombreMes=st.sidebar.multiselect(
     label='Filtre Por NombreMes 🔎',
     options=df_['NombreMes'].unique(),
-    default=df_['NombreMes'].unique()[:2])
+    default=df_['NombreMes'].unique()[:1])
 
     Resuelto=st.sidebar.multiselect(
     label='Filtre Por Resuelto 🔎',
