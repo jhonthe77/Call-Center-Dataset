@@ -98,7 +98,7 @@ def data_analisis():
             st.audio('20231011_231621.mp3', format='audio/mp3')
 
     st.subheader('Esta es la estadistica basica que me entrega el df')
-    st.write(df_.describe())
+    st.dataframe(df_.describe())
     
 
 
