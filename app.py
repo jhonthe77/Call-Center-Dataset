@@ -112,7 +112,7 @@ def data_analisis():
         st.download_button(
             "Presiona para descargar el CSV",
             csv,
-            "file.csv",
+            "Callcenter.csv",
             "text/csv",
             key='download-csv',
             use_container_width=True
@@ -139,7 +139,7 @@ def data_analisis():
         st.download_button(
             label="Presiona para descargar el Excel",
             data=xlsx_content,
-            file_name="archivo_descargado.xlsx",
+            file_name="Callcenter.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             key='download-xlsx',
             use_container_width=True
