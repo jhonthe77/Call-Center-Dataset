@@ -23,20 +23,30 @@ def visualizacion_analisis():
         st.plotly_chart(fig,use_container_width=True,theme=theme)
 
 
-    col3, col4=st.columns(2)
     
     df_agente=df_.groupby(['Agente','Tema'])['Calificación de satisfacción'].mean().reset_index()
     fig=px.bar(df_agente,x='Agente',y='Calificación de satisfacción',color='Tema',barmode='group',
             title='Promedio de la Calificacion de cada Tema por Agente')
     st.plotly_chart(fig,use_container_width=True,theme=theme)
 
+    col3, col4=st.columns(2)
 
-    df_agente=df_.groupby(['Agente','Tema'])['Calificación de satisfacción'].mean().reset_index()
-    fig = px.bar(df_agente, 
-            x='Tema', 
-            y='Calificación de satisfacción', 
-            color='Agente',
-            barmode='group',
-            title='Calificaciones de Satisfacción por Agente y Tema',
-            labels={'Calificación de satisfacción': 'Calificación'})
-    st.plotly_chart(fig,use_container_width=True,theme=theme)
+    with col4:
+        fig = px.bar(df_agente, 
+                x='Tema', 
+                y='Calificación de satisfacción', 
+                color='Agente',
+                barmode='group',
+                title='Calificaciones de Satisfacción por Agente y Tema',
+                labels={'Calificación de satisfacción': 'Calificación'})
+        st.plotly_chart(fig,use_container_width=True,theme=theme)
+
+    with col3:
+        fig = px.line(df_agente, 
+                x='Tema', 
+                y='Calificación de satisfacción', 
+                color='Agente',
+                title='Evolución de Calificaciones de Satisfacción por Tema y Agente',
+                labels={'Calificación de satisfacción': 'Calificación'})
+
+        st.plotly_chart(fig,use_container_width=True,theme=theme)
