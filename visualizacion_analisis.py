@@ -18,7 +18,17 @@ def visualizacion_analisis():
     options=df_['Agente'].unique(),
     default=df_['Agente'].unique()[:4])
 
-    df_= df_.query('Tema==@Tema & Agente==@Agente')
+    NombreDia=st.sidebar.multiselect(
+    label='Filtre Por NombreDia 🔎',
+    options=df_['NombreDia'].unique(),
+    default=df_['NombreDia'].unique()[:2])
+
+    NombreMes=st.sidebar.multiselect(
+    label='Filtre Por NombreMes 🔎',
+    options=df_['NombreMes'].unique(),
+    default=df_['NombreMes'].unique()[:2])
+
+    df_= df_.query('Tema==@Tema & Agente==@Agente & NombreDia==@NombreDia & NombreMes==@NombreMes')
 
 
     st.title('Analisis con visualizaciónes 📈')
