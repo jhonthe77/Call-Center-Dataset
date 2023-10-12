@@ -114,7 +114,7 @@ def data_analisis():
     csv = convert_df(df_au)
 
     st.download_button(
-    "Press to Download",
+    "Presiona para descargar el CSV",
     csv,
     "file.csv",
     "text/csv",
@@ -138,7 +138,7 @@ def data_analisis():
 
     # Agrega un botón para descargar el archivo XLSX
     st.download_button(
-        label="Presiona para descargar XLSX",
+        label="Presiona para descargar el Excel",
         data=xlsx_content,
         file_name="archivo_descargado.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
