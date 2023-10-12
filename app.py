@@ -25,7 +25,7 @@ def data_analisis():
     st.audio("20231011_213345.mp3", format='audio/mp3')
     st.subheader('Datos con los que trabajare')
     st.dataframe(df.head())
-    st.subheader('Mostrare los pasos para limpiar y enriqueser los datos')
+    st.subheader('Mostrare los pasos para limpiar y enriqueser los datos 📋')
 
     #elimino la columna id ya que no es relevante 
     df.drop(columns='Call Id',inplace=True)
