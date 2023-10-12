@@ -22,6 +22,7 @@ def data_analisis():
     st.write(introducion)
 
     buffer=StringIO()
+    buffer2=StringIO()
     df.info(buf=buffer)
     info=buffer.getvalue()
 
@@ -82,7 +83,18 @@ def data_analisis():
         st.code(codigo)
     st.dataframe(df_.head())
 
+    df_.info(buf=buffer2)
+    info2=buffer2.getvalue()
 
+    st.subheader('Esta es la Informacion que me entrega el df')
+    with st.expander('Ver la infromación que arroja el DataFrme 📋',expanded=True):
+        col2,col3,=st.columns(2)
+        with col2:
+            st.text(info2)
+        with col3:
+            st.subheader('Explicacion de la informacion')
+            st.write(explicacion_info)
+            st.audio('20231011_223221.mp3', format='audio/mp3')
 
 
 
