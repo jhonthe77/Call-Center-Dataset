@@ -174,6 +174,11 @@ pages = {
 }
 st.sidebar.image('servicio-premium.ico', width=150)
 # Sidebar para la selección de página
+
+url_redireccion = "https://costumer-jb7mpmynfrbpw7ayujy3y3.streamlit.app/"  # Reemplaza con tu URL
+
+# Inserta un enlace en el sidebar que redirige a la URL especificada
+st.sidebar.markdown(f"[Ir a Panel De Análisis Empresarial]({url_redireccion})")
 page_selection = st.sidebar.radio("Selecciona una página 📃", tuple(pages.keys()))
 
 
