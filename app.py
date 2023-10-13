@@ -81,7 +81,7 @@ def data_analisis():
    
 
 
-    with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋'):
+    with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋',expanded=True):
         st.code(codigo)
     st.dataframe(df_.head(), use_container_width=True)
 
