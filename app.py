@@ -151,6 +151,13 @@ def data_analisis():
     # Agregar el video a la aplicación
     st.video(video_file)
 
+st.title("Video de como navegar en la pagina e interpretar el grafico de radar")
+
+# Ruta del archivo de video en formato WebM
+video_path = open("video/20231013 095020-1.webm",'rb' ) # Cambia a la ruta correcta de tu video WebM
+video_file=video_path.read()
+# Agregar el video a la aplicación
+st.video(video_file)
 
 
 
