@@ -252,7 +252,7 @@ def visualizacion_analisis():
 
     with col10:
         st.subheader('Fortaleza de respuesta en segundos por Agente y por Tema')
-        st.dataframe(df_agente.head(), use_container_width=True)
+        st.dataframe(df_agente, use_container_width=True)
     df_agente = df_.groupby(['Agente', 'Tema', 'Resuelto'])[
         'Velocidad de respuesta en segundos'].mean().reset_index()
     
