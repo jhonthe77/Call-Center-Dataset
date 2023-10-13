@@ -149,7 +149,7 @@ def visualizacion_analisis():
                             r='Resuelto_count',
                             color='Agente',  # Utiliza la columna 'Agente' para asignar colores
                             color_discrete_map=colores_agentes,  # Asigna colores basados en el diccionario
-                            title='Fortaleza de Resuluciones de los Tema por Agente',
+                            title='Fortaleza para dar Soluciones de los Tema por Agente',
                             labels={'Resuelto_count': 'Resuelto(Y/N)'},
                             markers=True,
                             line_close=True)
@@ -174,7 +174,7 @@ def visualizacion_analisis():
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     with col7:
-        st.subheader('Fortaleza de Resuluciones de los Tema por Agente')
+        st.subheader('Fortaleza para dar Soluciones de los Tema por Agente')
         st.dataframe(df_agente.head(), width=500)
 
 
