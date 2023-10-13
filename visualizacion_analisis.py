@@ -253,3 +253,82 @@ def visualizacion_analisis():
     with col10:
         st.subheader('Fortaleza de respuesta en segundos por Agente y por Tema')
         st.dataframe(df_agente.head(), use_container_width=True)
+    df_agente = df_.groupby(['Agente', 'Tema', 'Resuelto'])[
+        'Velocidad de respuesta en segundos'].mean().reset_index()
+    
+
+
+
+
+
+    df_agente=df_.groupby(['Agente','Tema','Resuelto'])['Duración de la llamada'].mean().reset_index()
+
+    
+    col20, col21= st.columns(2)
+
+    with col20:
+        fig = px.bar(df_agente, x='Tema', y='Duración de la llamada',
+                    color='Agente', barmode='group'
+                    ,title='Promedio de Duración de la llamada por Tema y por Agente')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+    with col21:
+        fig = px.line(df_agente, x='Tema',
+                    y='Duración de la llamada', color='Agente', markers=True
+                     ,title='Promedio de Duración de la llamada por Tema y por Agente')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+
+    col22, col23= st.columns(2)
+    with col23:
+        fig = px.bar(df_agente, x='Agente',
+                    y='Duración de la llamada', color='Tema', barmode='group'
+                     ,title='Promedio de Duración de la llamada por Agente y por Tema')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+    with col22:
+        fig = px.line(df_agente, x='Agente',
+                    y='Duración de la llamada', color='Tema', markers=True
+                     ,title='Promedio de Duración de la llamada por Agente y por Tema')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+
+
+    col24, col25 = st.columns(2)
+    with col24:
+
+        colores_agentes = {'Becky': 'blue', 'Dan': 'green', 'Diane': 'red', 'Greg': 'purple',
+                           'Jim': 'orange', 'Joe': 'cyan', 'Martha': 'magenta', 'Stewart': 'yellow'}
+        fig = px.line_polar(df_agente,
+                            theta='Tema',
+                            r='Duración de la llamada',
+                            color='Agente',  # Utiliza la columna 'Agente' para asignar colores
+                            color_discrete_map=colores_agentes,  # Asigna colores basados en el diccionario
+                            title='Fortaleza de respuesta en Duración de la llamada por Agente y por Tema',
+                            labels={
+                                'Duración de la llamada': 'Promedio de Duración de la llamada'},
+                            markers=True,
+                            line_close=True)
+        fig.update_traces(fill='toself')
+        fig.update_layout(
+            polar=dict(
+                bgcolor='#83C9FF',  # Cambia el color del fondo
+                radialaxis=dict(
+                    visible=True,
+                    gridcolor='black',  # Cambia el color de la cuadrícula radial
+                ),
+            ),
+        )
+
+        fig.update_layout(
+            legend=dict(
+                orientation='v',  # Cambia la orientación a horizontal
+                yanchor='auto',  # Ancla la leyenda en la parte superior
+                y=1.1 # Ajusta la posición vertical de la leyenda
+            )
+        )
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+    with col25:
+        st.subheader('Fortaleza de respuesta en Duración de la llamada por Agente y por Tema')
+        st.dataframe(df_agente.head(), use_container_width=True)
