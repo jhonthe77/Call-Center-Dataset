@@ -153,11 +153,15 @@ def data_analisis():
 
 
 
+
+
+
 pages = {
     "Data analisis 📋 ": data_analisis,
     "Analisis con visualizacion 📊 ": visualizacion_analisis,
     
 }
+
 st.sidebar.image('servicio-premium.ico', width=80)
 # Sidebar para la selección de página
 

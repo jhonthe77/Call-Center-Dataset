@@ -175,7 +175,7 @@ def visualizacion_analisis():
 
     with col7:
         st.subheader('Fortaleza para dar Soluciones de los Tema por Agente')
-        st.dataframe(df_agente.head(), width=500)
+        st.dataframe(df_agente, width=500)
 
 
 
@@ -331,4 +331,4 @@ def visualizacion_analisis():
 
     with col25:
         st.subheader('Fortaleza de respuesta en Duración de la llamada por Agente y por Tema')
-        st.dataframe(df_agente.head(), use_container_width=True)
+        st.dataframe(df_agente, use_container_width=True)
