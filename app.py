@@ -172,7 +172,7 @@ pages = {
     "Analisis con visualizacion 📊 ": visualizacion_analisis,
     
 }
-st.sidebar.image('servicio-premium.ico', width=150)
+st.sidebar.image('servicio-premium.ico', width=80)
 # Sidebar para la selección de página
 
 url_redireccion = "https://costumer-jb7mpmynfrbpw7ayujy3y3.streamlit.app/"  # Reemplaza con tu URL
