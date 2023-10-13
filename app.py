@@ -172,7 +172,7 @@ pages = {
     "Analisis con visualizacion 📊 ": visualizacion_analisis,
     
 }
-
+st.sidebar.image('servicio-premium.ico', width=150)
 # Sidebar para la selección de página
 page_selection = st.sidebar.radio("Selecciona una página 📃", tuple(pages.keys()))
 
