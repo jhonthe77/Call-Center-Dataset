@@ -170,30 +170,46 @@ def visualizacion_analisis():
                 y=1.1 # Ajusta la posición vertical de la leyenda
             )
         )
-        
+
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     with col7:
         st.subheader('Fortaleza de Resuluciones de los Tema por Agente')
         st.dataframe(df_agente.head(), width=500)
 
+
+
+
+
+
     df_agente = df_.groupby(['Agente', 'Tema', 'Resuelto'])[
         'Velocidad de respuesta en segundos'].mean().reset_index()
-    fig = px.bar(df_agente, x='Tema', y='Velocidad de respuesta en segundos',
-                 color='Agente', barmode='group')
-    st.plotly_chart(fig, theme=None, use_container_width=True)
+    
+    col12, col13= st.columns(2)
 
-    fig = px.line(df_agente, x='Tema',
-                  y='Velocidad de respuesta en segundos', color='Agente', markers=True)
-    st.plotly_chart(fig, theme=None, use_container_width=True)
+    with col12:
+        fig = px.bar(df_agente, x='Tema', y='Velocidad de respuesta en segundos',
+                    color='Agente', barmode='group')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
 
-    fig = px.bar(df_agente, x='Agente',
-                 y='Velocidad de respuesta en segundos', color='Tema', barmode='group')
-    st.plotly_chart(fig, theme=None, use_container_width=True)
+    with col13:
+        fig = px.line(df_agente, x='Tema',
+                    y='Velocidad de respuesta en segundos', color='Agente', markers=True)
+        st.plotly_chart(fig, theme=None, use_container_width=True)
 
-    fig = px.line(df_agente, x='Agente',
-                  y='Velocidad de respuesta en segundos', color='Tema', markers=True)
-    st.plotly_chart(fig, theme=None, use_container_width=True)
+
+    col14, col15= st.columns(2)
+    with col15:
+        fig = px.bar(df_agente, x='Agente',
+                    y='Velocidad de respuesta en segundos', color='Tema', barmode='group')
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+    with col14:
+        fig = px.line(df_agente, x='Agente',
+                    y='Velocidad de respuesta en segundos', color='Tema', markers=True)
+        st.plotly_chart(fig, theme=None, use_container_width=True)
+
+
 
     col9, col10 = st.columns(2)
     with col9:
