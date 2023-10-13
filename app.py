@@ -10,9 +10,6 @@ from visualizacion_analisis import *
 st.set_page_config('Proceso de Analisis', layout='wide')
 
 
-
-
-
 def data_analisis():
     st.subheader('Hecho Por Jhon Kerly Mosquera 🕵️‍♂️')
 
@@ -77,8 +74,6 @@ def data_analisis():
     df_.rename(columns=columns_name_es, inplace=True)
     df_['Fecha'] = pd.to_datetime(df_['Fecha']).dt.date
 
-
-   
 
 
     with st.expander(f'Ver El Codigo Para Depurar y Enriqueser los Datos📋',expanded=True):
@@ -158,15 +153,6 @@ def data_analisis():
 
 
 
-
-
-
-
-# Llama a la función para mostrar los elementos en la barra lateral
-
-
-
-
 pages = {
     "Data analisis 📋 ": data_analisis,
     "Analisis con visualizacion 📊 ": visualizacion_analisis,
@@ -180,8 +166,6 @@ url_redireccion = "https://costumer-jb7mpmynfrbpw7ayujy3y3.streamlit.app/"  # Re
 # Inserta un enlace en el sidebar que redirige a la URL especificada
 st.sidebar.markdown(f"[Ir a Panel De Análisis Empresarial]({url_redireccion})")
 page_selection = st.sidebar.radio("Selecciona una página 📃", tuple(pages.keys()))
-
-
 
 
 # Llama a la función correspondiente a la página seleccionada
