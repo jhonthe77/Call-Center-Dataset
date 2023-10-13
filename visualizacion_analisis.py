@@ -189,24 +189,28 @@ def visualizacion_analisis():
 
     with col12:
         fig = px.bar(df_agente, x='Tema', y='Velocidad de respuesta en segundos',
-                    color='Agente', barmode='group')
+                    color='Agente', barmode='group'
+                    ,title='Promedio de Velocidad de respuesta en segundos por Tema y por Agente')
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     with col13:
         fig = px.line(df_agente, x='Tema',
-                    y='Velocidad de respuesta en segundos', color='Agente', markers=True)
+                    y='Velocidad de respuesta en segundos', color='Agente', markers=True
+                     ,title='Promedio de Velocidad de respuesta en segundos por Tema y por Agente')
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
 
     col14, col15= st.columns(2)
     with col15:
         fig = px.bar(df_agente, x='Agente',
-                    y='Velocidad de respuesta en segundos', color='Tema', barmode='group')
+                    y='Velocidad de respuesta en segundos', color='Tema', barmode='group'
+                     ,title='Promedio de Velocidad de respuesta en segundos por Agente y por Tema')
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     with col14:
         fig = px.line(df_agente, x='Agente',
-                    y='Velocidad de respuesta en segundos', color='Tema', markers=True)
+                    y='Velocidad de respuesta en segundos', color='Tema', markers=True
+                     ,title='Promedio de Velocidad de respuesta en segundos por Agente y por Tema')
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
 
@@ -221,7 +225,7 @@ def visualizacion_analisis():
                             r='Velocidad de respuesta en segundos',
                             color='Agente',  # Utiliza la columna 'Agente' para asignar colores
                             color_discrete_map=colores_agentes,  # Asigna colores basados en el diccionario
-                            title='Fortaleza de Resuluciones de los Tema por Agente',
+                            title='Fortaleza de respuesta en segundos por Agente y por Tema',
                             labels={
                                 'Velocidad de respuesta en segundos': 'Promedio de Velocidad de respuesta en segundos'},
                             markers=True,
@@ -247,5 +251,5 @@ def visualizacion_analisis():
         st.plotly_chart(fig, theme=None, use_container_width=True)
 
     with col10:
-        st.subheader('Fortaleza de Resuluciones de los Tema por Agente')
+        st.subheader('Fortaleza de respuesta en segundos por Agente y por Tema')
         st.dataframe(df_agente.head(), use_container_width=True)
